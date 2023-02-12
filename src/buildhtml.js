@@ -82,7 +82,7 @@ const manGen = manager => {
         <style>
         #header {
           display: flex;
-          background-color: rgb(237, 103, 103);
+          background-color: rgb(9,14,18);
           width: 100%;
           height: 150px;
           align-items: center;
@@ -90,7 +90,7 @@ const manGen = manager => {
       }
       
       h1 {
-          color: whitesmoke;
+          color: white;
       }
       
       main {
@@ -115,7 +115,7 @@ const manGen = manager => {
           width: 20%;
           background-color: rgb(239, 239, 239);
           border-radius: 2px;
-          box-shadow: 5px 5px 5px grey;
+          box-shadow: 5px 5px 5px slategray;
           border-style: solid;
           border-width: 1px;
           border-color: rgb(198, 198, 198);
@@ -128,7 +128,7 @@ const manGen = manager => {
           flex-direction: column;
           background-color: rgb(52, 155, 245);
           width: 100%;
-          color: whitesmoke;
+          color: white;
           border-radius: 2px;
       
       }
@@ -154,7 +154,7 @@ const manGen = manager => {
           border-color: rgb(198, 198, 198);
           width: 80%;
           padding: 8px;
-          background-color: whitesmoke;
+          background-color: white;
       
       }
       </style>
