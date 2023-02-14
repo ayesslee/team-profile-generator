@@ -1,3 +1,4 @@
+// dependencies
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Employee = require('./lib/Employee');
@@ -6,32 +7,32 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const buildhtml = require('./src/buildhtml');
 
-const team = [];
+const myTeam = [];
 
-const managerInput = [
+const managerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: "Manager's name:"
+        message: "Enter the team manager's name."
     },
     {
-        type:'input',
+        type: 'input',
         name: 'id',
-        message: "Manager's ID:"
+        message: "Enter the manager's ID."
     },
     {
         type: 'input',
         name: 'email',
-        message: "Manager's email:"
+        message: "Enter the manager's email."
     },
     {
         type: 'input',
         name: 'office',
-        message: "Manager's office number:"
+        message: "Enter the manager's office number."
     }
 ]
 
-const employeeAdd = [
+const employeeRole = [
     {
         type: 'list',
         message: 'Add employee',
@@ -40,55 +41,55 @@ const employeeAdd = [
     }
 ]
 
-const InternInput = [
+const InternQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: "Employee's name:"
+        message: "Enter the employee's name."
     },
     {
         type: 'input',
         name: 'id',
-        message: "Employee's ID:"
+        message: "Enter the employee's ID."
     },
     {
-        type:'input',
+        type: 'input',
         name: 'email',
-        message: "Employee's email:"
+        message: "Enter the employee's email."
     },
     {
         type: 'input',
         name: 'school',
-        message: "Employee's school:"
+        message: "Enter the employee's school."
     }
 ]
 
-const engineerInput = [
+const engineerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: "Employee's name:"
+        message: "Enter the employee's name."
     },
     {
         type: 'input',
         name: 'id',
-        message: "Employee's ID:"
+        message: "Enter the employee's ID."
     },
     {
         type: 'input',
         name: 'email',
-        message: "Employee's email:"
+        message: "Enter the employee's email."
     },
     {
         type: 'input',
         name: 'github',
-        message: "Employee's github:"
+        message: "Enter the employee's github."
     }
 ]
 
 function teamtime() {
     inquirer
-        .createPromptModule(employeeAdd)
+        .prompt(employeeRole)
         .then(response => {
             switch (response.role) {
                 case 'Engineer':
@@ -106,40 +107,39 @@ function teamtime() {
 
 function managertime() {
     inquirer
-        .createPromptModule(managerInput)
+        .prompt(managerQuestions)
         .then(response => {
             const { name, id, email, office } = response;
             const manager = new Manager(name, id, email, office);
-            team.push(manager);
+            myTeam.push(manager);
             teamtime();
         });
 };
 
 function interntime() {
     inquirer
-        .createPromptModule(InternInput)
+        .prompt(InternQuestions)
         .then(response => {
             const { name, id, email, school } = response;
             const intern = new Intern(name, id, email, school);
-            team.push(intern);
+            myTeam.push(intern);
             teamtime();
         });
 };
 
 function engineertime() {
     inquirer
-        .createPromptModule(engineerInput)
+        .prompt(engineerQuestions)
         .then(response => {
             const { name, id, email, github } = response;
             const engineer = new Engineer(name, id, email, github);
-            team.push(engineer);
+            myTeam.push(engineer);
             teamtime();
         });
 };
 
 function starthtml() {
-    fs.appendFile('./dist/index.html', buildhtml(team), 
-    (err => err ? console.error(err) : console.log('Generating HTML.')));
+    fs.appendFile('./dist/index.html', buildhtml(myTeam), (err) => err ? console.error(err) : console.log('Generating HTML.'));
 };
 
 managertime();

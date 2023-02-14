@@ -1,24 +1,24 @@
 {
     "dependencies": {
-      "inquirer": "^8.2.4"
+        "inquirer": "^8.2.4"
     },
-    "name": "c",
+    "name": "team-profile-generator",
     "description": "",
     "version": "1.0.0",
     "main": "index.js",
     "directories": {
-      "lib": "lib",
-      "test": "jest"
+        "lib": "lib",
+        "test": "jest"
     },
     "devDependencies": {
-      "jest": "^29.2.2"
+        "jest": "^29.2.2"
     },
     "scripts": {
-      "test": "jest"
+        "test": "jest"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/min-andrew/Team-Profile-Generator.git"
+        "type": "git",
+        "url": "git+https://github.com/ayesslee/team-profile-generator.git"
     },
     "author": "",
     "license": "ISC",
